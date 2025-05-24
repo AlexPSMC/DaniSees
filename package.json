@@ -1,7 +1,7 @@
 {
     "name": "Lebiu-Launcher",
     "preductName": "Lebiu Launcher",
-    "version": "1.0.4",
+    "version": "2.0.0",
     "description": "Launcher ofcial de Lebiu Studio",
     "main": "src/app.js",
     "author": {
@@ -12,7 +12,7 @@
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon=https://i.ibb.co/qFPLJRZv/image-40.png"
+        "icon": "node build.js --icon=https://i.ibb.co/Kp2R68Th/icon-1.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
@@ -39,6 +39,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/BlueToruu/Lebiu-Launcher.git"
+        "url": "git+https://github.com/AlexPSMC/DaniSees.git"
     }
 }
