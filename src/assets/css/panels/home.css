@@ -4,27 +4,11 @@
     flex-direction: column;
     align-items: center;
 }
-
 /*******************************************************************************
  *                                                                             *
  * Status server                                                               *
  *                                                                             *
  ******************************************************************************/
-
-.status-server {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--background);
-    width: 25rem;
-    height: 3rem;
-    color: var(--color);
-    border-radius: 10px;
-    margin-top: 3rem;
-    padding: 1rem;
-    text-align: center;
-}
 
 .server-status-icon {
     height: 3.3rem;
@@ -33,11 +17,6 @@
 .server-status-name {
     font-size: 1.5rem;
     color: var(--color);
-}
-
-.server-status-text {
-    font-size: 0.6rem;
-    color: #1AC707;
 }
 
 .server-status-infos .red {
@@ -65,7 +44,7 @@
     right: 10px;
     border-radius: 15px;
     border: solid 5px var(--background);
-    background: #1AC707;
+    background: #182017;
 }
 
 .red:after {
@@ -85,12 +64,13 @@
  *                                                                             *
  ******************************************************************************/
 
-.new-tab {
+ .new-tab {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 85%;
     height: 100%;
+    margin-left: 80px; /* Ajusta el valor según lo necesites */
 }
 
 .titre-tab-new {
@@ -161,60 +141,22 @@
 
 /*******************************************************************************
  *                                                                             *
- * social server                                                               *
- *                                                                             *
- ******************************************************************************/
-
-.social-tab {
-    position: absolute;
-    display: flex;
-    bottom: 0;
-    right: 0;
-    width: 15%;
-    height: calc(80% - 1rem);
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.social-list {
-    border-radius: 10px;
-    height: 100%;
-}
-
-.social-block {
-    display: flex;
-    background: var(--background-transparent);
-    width: 90px;
-    height: 90px;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-    font-size: 2rem;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-block .icon-social {
-    pointer-events: none;
-    background-repeat: no-repeat;
-    height: 55%;
-    width: 55%;
-    filter: var(--svg-color);
-}
-
-/*******************************************************************************
- *                                                                             *
  * sidebar                                                                     *
  *                                                                             *
  ******************************************************************************/
 
-.sidebar {
+ .sidebar {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 90px;
+    width: 90px;
+    height: 100vh;
     background: var(--background-transparent);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Capa base */
 }
 
 .player-options {
@@ -235,7 +177,9 @@
     width: 3rem;
     pointer-events: none;
     border-radius: 15px;
+    margin-top: 50px; /* Ajusta este valor para moverlo hacia abajo */
 }
+
 
 .player-menu {
     color: var(--element-color);
@@ -243,33 +187,6 @@
     pointer-events: none;
 }
 
-.play-elements {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.play-instance {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    border: solid 3px var(--element-color);
-    border-radius: 15px;
-    height: 3.2rem;
-    padding-right: 1.9rem;
-}
-
-.play-btn {
-    border: none;
-    border-radius: 10px;
-    background: none;
-    color: var(--color);
-    font-size: 2rem;
-    font-weight: bolder;
-    padding: 0 1.5rem;
-    pointer-events: none;
-}
 
 .instance-select {
     display: flex;
@@ -312,14 +229,6 @@
 .progress-bar::-webkit-progress-value {
     background-color: var(--element-color);
     border-radius: 10px;
-}
-
-.settings-btn {
-    width: 3rem;
-    height: 3rem;
-    font-size: 3rem;
-    color: var(--element-color);
-    margin: 0 1.5rem;
 }
 
 .instance-popup {
@@ -375,4 +284,134 @@
 
 .active-instance {
     background: var(--element-color);
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * social server                                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+ .social-tab {
+    position: fixed; /* Cambié de absolute a fixed para que se mantenga en la misma posición al hacer scroll */
+    display: flex;
+    left: -50px; /* Alineado a la derecha de la sidebar (ajusta según el ancho de tu barra lateral) */
+    bottom: -40px; /* Ajusta la distancia desde el fondo de la pantalla */
+    width: 15%;
+    height: calc(80% - 1rem);
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.social-list {
+    border-radius: 10px;
+    height: 500%;
+}
+
+.social-block {
+    display: flex;
+    background: transparent; /* Hace el fondo transparente */
+    width: 90px;
+    height: 90px;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    flex-direction: column; /* Esto organiza los iconos en una columna */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Añade un espacio de 10px entre los iconos */
+}
+
+.social-block .icon-social {
+    pointer-events: none;
+    background-repeat: no-repeat;
+    height: 55%;
+    width: 55%;
+    filter: var(--svg-color);
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Settings-Button                                                             *
+ *                                                                             *
+ ******************************************************************************/
+
+.Settings-Button {
+    position: relative;
+    right: 464px;
+    top: 80px;
+    left: 580px;
+    background-image: url(../../images/settins.png);
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000000;
+    background-color: #adadaf2a;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    justify-content: center;
+}
+
+.settings-btn:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #5f5e69;
+    backdrop-filter: blur(8px);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * PlayButoon                                                          *
+ *                                                                             *
+ ******************************************************************************/
+
+ .play-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Fijo en pantalla */
+    bottom: 20px; /* Distancia desde el fondo */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centrar realmente */
+    z-index: 2; /* Asegura que quede por encima */
+    width: auto; /* Opcional: puedes fijar el ancho si necesitas */
+}
+
+.play-btn {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    border-style: solid;
+    border-width: 1px;
+    top: -50px;
+    left: 1px;
+    border-color: #00000000;
+    background-color: #adadaf2a;
+    font: normal normal bold 20px/25px Trebuchet MS;
+    text-align: center;
+    color: #ffffff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    transition: 0.2s;
+    box-shadow: 0px 0px 3px #adadaf2a;
+    backdrop-filter: blur(8px);
+}
+
+.play-btn:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #adadaf2a;
+    backdrop-filter: blur(8px);
 }
