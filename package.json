@@ -1,7 +1,7 @@
 {
     "name": "Lebiu-Launcher",
     "preductName": "Lebiu Launcher",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Launcher ofcial de Lebiu Studio",
     "main": "src/app.js",
     "author": {
